@@ -2,7 +2,7 @@
 
 /**
  * main - prints "with proper grammar, but the outcome is a piece of art,"
- * Retrun: Always 0.
+ * Retrun: Always 0 (Success)
  */
 
 int main(void)
