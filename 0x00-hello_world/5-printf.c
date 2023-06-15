@@ -1,7 +1,7 @@
 #include <stdio.h>
 
 /**
- * main - prints "with proper grammar, but the outcome is a piece of art," followed newline
+ * main - Entry point
  * Retrun: Always 0 (Success)
  */
 
