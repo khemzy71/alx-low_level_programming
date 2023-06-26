@@ -11,10 +11,10 @@ int _strlen(char *s)
         int len = 0;
 
         while (*s != '\0')
-        {
-                len++;
-                s++;
-        }
+	{
+		len++;
+		s++;
+	}
 
         return (len);
 }
@@ -28,9 +28,9 @@ void rev_string(char *s)
 {
 
         int x = 0;
-        int y = (_strlen(s) - 1);
-        char rev;
-
+	int y = (_strlen(s) - 1);
+	char rev;
+	
         while (x < y)
         {
                 rev = s[x];
