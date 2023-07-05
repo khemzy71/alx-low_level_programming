@@ -2,6 +2,7 @@
 
 /**
  * factorial - returns the factorial of a given number
+ * @n: number
  * Return: factorial of number, -1 if negative number
  */
 
