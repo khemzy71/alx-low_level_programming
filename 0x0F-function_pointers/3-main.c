@@ -1,33 +1,46 @@
-#include <stdio.h>
-#include <stdlib.h>
+#include <stdio.h> /* printf */
+#include <stdlib.h> /* atoi */
 #include "3-calc.h"
 
 /**
- * main - performs simple operations
- * @argc: arg count
- * @argv: arg value
- *
- * Return:int
+ * main - when user runs main,
+ * user should give two integers and an operator and
+ * main will calculate the math via a function pointer.
+ * prints sum, difference, product, dividend, or remainder
+ * @argc: argument counter
+ * @argv: arguments
+ * Return: 0 on sucess
  */
+
 int main(int argc, char *argv[])
 {
-	int a, b, c;
-	int (*fun)(int, int);
+        int n1, n2;
+        int (*f)(int, int);
 
-	if (argc != 4)
-	{
-		printf("Error\n");
-		exit(98);
-	}
-	a = atoi(argv[1]);
-	b = atoi(argv[3]);
-	fun = get_op_func(argv[2]);
-	if (fun == NULL)
-	{
-		printf("Error\n");
-		exit(99);
-	}
-	c = fun(a, b);
-	printf("%d\n", c);
-	return (0);
+        /* validate input */
+        if (argc != 4)
+        {
+                printf("Error\n");
+                exit(98);
+        }
+
+        /* convert user input to ints and point to correct operator function */
+        n1 = atoi(argv[1]);
+        n2 = atoi(argv[3]);
+        f = get_op_func(argv[2]);
+
+        if (f == NULL || (argv[2][1] != '\0'))
+        {
+                printf("Error\n");
+                exit(99);
+        }
+        if ((argv[2][0] == '/' || argv[2][0] == '%') && argv[3][0] == '0')
+        {
+                printf("Error\n");
+                exit(100);
+        }
+
+        printf("%d\n", f(n1, n2)); /* calculate via function ptr */
+
+        return (0);
 }
