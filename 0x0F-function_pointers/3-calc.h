@@ -9,9 +9,8 @@
  */
 typedef struct op
 {
-    char *op;
-
-    int (*f)(int a, int b);
+	char *op;
+	int (*f)(int a, int b);
 } op_t;
 
 /* function to choose from 5 different operatins */
