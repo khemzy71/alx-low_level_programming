@@ -3,6 +3,7 @@
 /**
  * print_listint_safe - prints a listint_t linked list.
  * @head: head pointer of singly linked list
+ *
  * Return: Number of elements in list
  */
 size_t print_listint_safe(const listint_t *head)
