@@ -5,31 +5,33 @@
  * @b: binary
  * Return: unsigned int
  */
+
 unsigned int binary_to_uint(const char *b)
 {
+	unsigned int res = 0, one, i;
+	int x = 0;
 
-	int len = 0;
-	int a;
-	unsigned int sum = 0;
+	if (b == 0)
+		return (0);
 
-	if (b == NULL)
-		return (sum);
 
-	while (b[len] != '\0')
-		len++;
-	len -= 1;
-
-	a = 0;
-	while (b[a])
+	while (b[x] != 0)
 	{
-		if ((b[a] != '0') && (b[a] != '1'))
-			return (sum);
-
-		if (b[a] == '1')
-			sum += (1 * (1 << len));
-		a++;
-		len--;
+		if (b[x] != '0' && b[x] != '1')
+			return (0);
+		x++;
 	}
 
-	return (sum);
+	x = x - 1;
+
+	for (i = 0; x >= 0; i++, x--)
+	{
+		if (b[x] == '0')
+			one = 0;
+		else if (b[x] == '1')
+			one = 1;
+		one = one << i;
+		res = res | one;
+	}
+	return (res);
 }
